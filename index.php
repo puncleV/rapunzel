@@ -8,19 +8,15 @@
 <title>Rapunzel</title>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Breaking news</a>
-	    </div>
-	  </div><!-- /.container-fluid -->
-	</nav>
 	<div class="panel-body">
 		<?php
 			include("connect.php");
+			include("components/header.php");
 			if(isset($_SESSION['login'])){
+				setHeader(true);
 				include("news.php");
 			}else{
+				setHeader(false);
 				include("login.php");
 			}
 		?>
