@@ -1,9 +1,8 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-  </div>
-  <div class="panel-body">
-    Panel content
-  </div>
-  <div class="panel-footer">Panel footer</div>
-</div>
+<?php
+	include("components/post.php");
+	$isql = mysqli_query($idb, "SELECT * FROM `news`");
+	$news = $isql->fetch_all();
+	foreach ($news as $post) {
+		addPost($post[0], $post[1], $post[2]);
+	}
+?>
